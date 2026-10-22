@@ -1,0 +1,1 @@
+export async function boundedRetry(job,key,action,max=2){job.retries??={};job.retries[key]=(job.retries[key]||0)+1;if(job.retries[key]>max)throw new Error(`Retry limit reached for ${key}`);await new Promise(r=>setTimeout(r,350*job.retries[key]));return action();}

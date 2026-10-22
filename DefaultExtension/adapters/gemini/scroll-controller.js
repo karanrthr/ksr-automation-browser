@@ -1,0 +1,1 @@
+export async function scanUpward(send){let empty=0,last=-1;while(empty<3){const y=window.scrollY;await send({type:'gemini-scan'});window.scrollBy({top:-Math.max(450,innerHeight*.72),behavior:'smooth'});await new Promise(r=>setTimeout(r,900));if(window.scrollY===y||window.scrollY===last)empty++;else empty=0;last=window.scrollY;if(window.scrollY<=0)break;}}

@@ -1,0 +1,1 @@
+export function isGeminiChat(url,title){if(!/^https:\/\/gemini\.google\.com\//.test(url||''))return false;const path=new URL(url).pathname;return !/\/(app|settings|library)(\/|$)/i.test(path)||/\/app\/[^/?#]+/.test(path);}
